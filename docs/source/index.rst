@@ -1,4 +1,4 @@
-LAFVIN M.2 NVMe SSD Adapter For RPI5
+LAFVIN 2.13Inch e-Paper HAT
 ========================================
 
 .. toctree::
