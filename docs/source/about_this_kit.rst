@@ -64,20 +64,13 @@ Parameters
    * - Storage temperature
      - -25 ~ 70 ℃
 
-Notes:
+.. note::
 
-- **Refresh time**: The refresh time is the experimental results, the actual refresh time will have errors, and the actual effect shall prevail. There will be a flickering effect during the global refresh process, this is a normal phenomenon.
-      
-- **Refresh power consumption**: The power consumption data is the experimental results. The actual power consumption will have a certain error due to the existence of the driver board and the actual use situation. The actual effect shall prevail.
-      
-- **Low temperature operation**: Refresh in a low temperature environment may appear color cast, it need to be static in the environment of 25℃ for 6 hours before refresh.
-
-.. figure:: ./Tutorial/img/list.jpg
-   :alt: Included accessories in the kit
-   :align: center
-   :width: 70%
-   
-   *Kit Contents*
+    - **Refresh time**: The refresh time is the experimental results, the actual refresh time will have errors, and the actual effect shall prevail. There will be a flickering effect during the global refresh process, this is a normal phenomenon.
+          
+    - **Refresh power consumption**: The power consumption data is the experimental results. The actual power consumption will have a certain error due to the existence of the driver board and the actual use situation. The actual effect shall prevail.
+          
+    - **Low temperature operation**: Refresh in a low temperature environment may appear color cast, it need to be static in the environment of 25℃ for 6 hours before refresh.
 
 Communication Protocol
 -----------------------
