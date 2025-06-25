@@ -34,16 +34,28 @@ int EPD_2in13_V4_test(void)
 	
 #if 1   // show bmp
 	Paint_NewImage(BlackImage, EPD_2in13_V4_WIDTH, EPD_2in13_V4_HEIGHT, 90, WHITE);
-
+    
     Debug("show bmp------------------------\r\n");
     Paint_SelectImage(BlackImage);
-    GUI_ReadBmp("./pic/lufei.bmp", 0, 0);
+    GUI_ReadBmp("./pic/logo1.bmp", 0, 0);
     EPD_2in13_V4_Display(BlackImage);
     DEV_Delay_ms(3000);
     
     Debug("show bmp------------------------\r\n");
     Paint_SelectImage(BlackImage);
-    GUI_ReadBmp("./pic/zhizhuxia.bmp", 0, 0);
+    GUI_ReadBmp("./pic/logo2.bmp", 0, 0);
+    EPD_2in13_V4_Display(BlackImage);
+    DEV_Delay_ms(3000);
+
+    Debug("show bmp------------------------\r\n");
+    Paint_SelectImage(BlackImage);
+    GUI_ReadBmp("./pic/Luffy.bmp", 0, 0);
+    EPD_2in13_V4_Display(BlackImage);
+    DEV_Delay_ms(3000);
+    
+    Debug("show bmp------------------------\r\n");
+    Paint_SelectImage(BlackImage);
+    GUI_ReadBmp("./pic/Spider_man.bmp", 0, 0);
     EPD_2in13_V4_Display(BlackImage);
     DEV_Delay_ms(3000);
     

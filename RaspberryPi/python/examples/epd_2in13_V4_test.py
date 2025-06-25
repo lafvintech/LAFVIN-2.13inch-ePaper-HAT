@@ -50,21 +50,27 @@ try:
         time.sleep(2)
         
         # read bmp file 
+        
+        logging.info("show logo...")
+        image = Image.open(os.path.join('logo1.bmp'))
+        epd.display(epd.getbuffer(image))
+        time.sleep(1)
+        image = Image.open(os.path.join('logo2.bmp'))
+        epd.display(epd.getbuffer(image))
+        time.sleep(1)
+        
         logging.info("2.read bmp file...")
-        image = Image.open(os.path.join('moon.bmp'))
+        image = Image.open(os.path.join('star.bmp'))
         epd.display(epd.getbuffer(image))
         time.sleep(2)
         
-        # read bmp file on window
         logging.info("3.read bmp file on window...")
-        # epd.Clear(0xFF)
         image1 = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-        bmp = Image.open(os.path.join('star.bmp'))
+        bmp = Image.open(os.path.join('moon.bmp'))
         image1.paste(bmp, (2,2))    
         epd.display(epd.getbuffer(image1))
         time.sleep(2)
         
-       
     else:
         logging.info("E-paper refreshes quickly")
         epd.init_fast()
