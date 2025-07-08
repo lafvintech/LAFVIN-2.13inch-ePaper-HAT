@@ -159,4 +159,23 @@ Precautions
    .longtable td {
      padding: 8px;
    }
+   
+   /* 增加列表项间距 */
+   ol li {
+     margin-bottom: 15px;
+     line-height: 1.5;
+   }
+   
+   /* 为红色文本增加额外的间距 */
+   .red {
+     display: block;
+     margin-bottom: 8px;
+     line-height: 1.6;
+   }
+   
+   /* 为普通文本增加间距 */
+   p {
+     line-height: 1.5;
+     margin-bottom: 10px;
+   }
    </style>
