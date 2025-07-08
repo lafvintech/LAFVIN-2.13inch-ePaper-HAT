@@ -6,4 +6,4 @@ LAFVIN 2.13Inch e-Paper HAT
 
    about_this_kit
    Tutorial/tutorial
-   Appendix/arduino_ide
+   Appendix/appendix

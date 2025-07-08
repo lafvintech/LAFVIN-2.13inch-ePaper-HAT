@@ -42,6 +42,9 @@ If you choose to connect using an 8-pin cable, please refer to the pin correspon
      - 24
      - 18
 
+.. .. image:: img/rpi_pin.jpg
+
+.. .. image:: img/rpi_zero_pin.png
 
 Enable SPI Interface
 -------------------------
@@ -174,7 +177,7 @@ Install Libraries for Python 3
     sudo apt-get install python3-pip
     sudo apt-get install python3-pil
     sudo apt-get install python3-numpy
-    sudo pip3 install spidev(Optional) # 可以先不安装，如果运行时报错，再安装
+    sudo pip3 install spidev(Optional) # You can proceed without installing first. If you encounter errors during execution, then install it.
 
 Install Libraries for Python 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,7 +188,7 @@ Install Libraries for Python 2
     sudo apt-get install python-pip
     sudo apt-get install python-pil
     sudo apt-get install python-numpy
-    sudo pip install spidev (Optional) # 可以先不安装，如果运行时报错，再安装
+    sudo pip install spidev (Optional) # You can proceed without installing first. If you encounter errors during execution, then install it.
 
 Install gpiozero Library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
