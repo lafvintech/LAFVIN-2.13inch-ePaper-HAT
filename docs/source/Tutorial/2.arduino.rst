@@ -53,7 +53,7 @@ You can refer to this tutorial to install Arduino IDE:
 Run The Demo
 --------------
 
-Download the code by clicking this link: `Download Code <https://codeload.github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT/zip/refs/heads/main/>`_
+Download the code by clicking this link: `Download Code <https://codeload.github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT/zip/refs/heads/main>`_
 
 After downloading and extracting the files, navigate to the Arduino folder where you'll find the example programs:
 
