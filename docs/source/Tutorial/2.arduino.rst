@@ -55,6 +55,8 @@ Run The Demo
 
 Download the code by clicking this link: `Download Code <https://codeload.github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT/zip/refs/heads/main>`_
 
+`Code Download <https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT/archive/refs/heads/main.zip>`_
+
 After downloading and extracting the files, navigate to the Arduino folder where you'll find the example programs:
 
 .. figure:: img/fold1.png
