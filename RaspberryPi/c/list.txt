@@ -1,0 +1,3 @@
+EPD model                   EPD define (EPD=)
+2.13inch e-Paper (V4)       epd2in13V4
+
