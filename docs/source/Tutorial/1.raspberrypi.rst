@@ -84,64 +84,76 @@ C Language
 Install lg Library
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Open the Raspberry Pi terminal and run the following commands:
+
 .. code-block:: bash
 
-    # Open the Raspberry Pi terminal and run the following commands:
     wget https://github.com/joan2937/lg/archive/master.zip
     unzip master.zip
     cd lg-master
     make
     sudo make install
-    # For more details, refer to the source code: https://github.com/gpiozero/lg
+
+For more details, refer to the source code: https://github.com/gpiozero/lg
 
 Install gpiod Library (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+Open the Raspberry Pi terminal and run the following commands:
 
-    # Open the Raspberry Pi terminal and run the following commands:
+.. code-block:: bash
+    
     sudo apt-get update
     sudo apt install gpiod libgpiod-dev
 
 Install BCM2835 (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Open the Raspberry Pi terminal and run the following commands:
 .. code-block:: bash
 
-    # Open the Raspberry Pi terminal and run the following commands:
     wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
     tar zxvf bcm2835-1.71.tar.gz
     cd bcm2835-1.71/
     sudo ./configure && sudo make && sudo make check && sudo make install
-    # For more information, refer to the official website: http://www.airspayce.com/mikem/bcm2835/
+
+For more information, refer to the official website: http://www.airspayce.com/mikem/bcm2835/
 
 Install WiringPi (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Open the Raspberry Pi terminal and run the following command:
+
 .. code-block:: bash
 
-    # Open the Raspberry Pi terminal and run the following command:
     sudo apt-get install wiringpi
-    
-    # For Raspberry Pi systems after May 2019 (earlier systems may not need this), you may need to upgrade:
+
+For Raspberry Pi systems after May 2019 (earlier systems may not need this), you may need to upgrade:
+
+.. code-block:: bash
+
     wget https://project-downloads.drogon.net/wiringpi-latest.deb
     sudo dpkg -i wiringpi-latest.deb
     gpio -v
-    # Running gpio -v should display version 2.52. If not shown, the installation is incorrect.
-    
-    # For Bullseye branch systems, use the following commands:
+
+Running ``gpio -v`` should display version 2.52. If not shown, the installation is incorrect.
+
+For Bullseye branch systems, use the following commands instead:
+
+.. code-block:: bash
+
     git clone https://github.com/WiringPi/WiringPi
     cd WiringPi
     ./build
     gpio -v
-    # Running gpio -v should display version 2.60. If not shown, the installation is incorrect.
+
+Running ``gpio -v`` should display version 2.60. If not shown, the installation is incorrect.
 
 Download Demo Code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+If you have already downloaded it, you can skip this step
 .. code-block:: bash
 
-    # If you have already downloaded it, you can skip this step
     git clone https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT.git
     cd e-Paper/RaspberryPi/
 
@@ -177,7 +189,9 @@ Install Libraries for Python 3
     sudo apt-get install python3-pip
     sudo apt-get install python3-pil
     sudo apt-get install python3-numpy
-    sudo pip3 install spidev(Optional) # You can proceed without installing first. If you encounter errors during execution, then install it.
+    sudo pip3 install spidev(Optional) 
+
+You can proceed without installing first. If you encounter errors during execution, then install it.
 
 Install Libraries for Python 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,7 +202,9 @@ Install Libraries for Python 2
     sudo apt-get install python-pip
     sudo apt-get install python-pil
     sudo apt-get install python-numpy
-    sudo pip install spidev (Optional) # You can proceed without installing first. If you encounter errors during execution, then install it.
+    sudo pip install spidev (Optional)
+
+You can proceed without installing first. If you encounter errors during execution, then install it.
 
 Install gpiozero Library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -205,11 +221,10 @@ Install gpiozero Library
     sudo apt install python-gpiozero
 
 Download Demo Code
-^^^^^^^^^^^^^^^^^^
-
+^^^^^^^^^^^^^^^^^^^^^^^
+If you have already downloaded it, you can skip this step
 .. code-block:: bash
 
-    # If you have already downloaded it, you can skip this step
     git clone https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT.git
     cd e-Paper/RaspberryPi/python
 
