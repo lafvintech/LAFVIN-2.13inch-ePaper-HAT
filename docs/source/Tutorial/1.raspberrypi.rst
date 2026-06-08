@@ -140,7 +140,7 @@ Compile the Demo Program
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-    On Raspberry Pi OS Trixie, try compiling after installing only the ``lg`` library first.
+    On Raspberry Pi OS, try compiling after installing only the ``lg`` library first.
     If you encounter missing dependency errors, return to the optional library steps above and install the required packages.
     ``-j4`` uses 4 threads for compilation, and you can adjust the number as needed.
     ``EPD=epd2in13V4`` specifies the macro definition used by the test demo in the main function.
