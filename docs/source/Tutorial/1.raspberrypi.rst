@@ -1,60 +1,26 @@
 .. _raspberrypi:
 
 Raspberry Pi User Guide
-========================
+=======================
 
 Hardware Connection
----------------------
+-------------------
 
-When connecting to the Raspberry Pi, you can directly insert the board into the 40PIN header of the Raspberry Pi, making sure the pins are correctly aligned.
-
-If you choose to connect using an 8-pin cable, please refer to the pin correspondence table below:
-
-.. list-table:: Pin Correspondence Table
-   :header-rows: 1
-   :widths: 20 40 40
-
-   * - e-Paper
-     - Raspberry Pi BCM2835
-     - Raspberry Pi Board
-   * - VCC
-     - 3.3V
-     - 3.3V
-   * - GND
-     - GND
-     - GND
-   * - DIN
-     - MOSI
-     - 19
-   * - CLK
-     - SCLK
-     - 23
-   * - CS
-     - CE0
-     - 24
-   * - DC
-     - 25
-     - 22
-   * - RST
-     - 17
-     - 11
-   * - BUSY
-     - 24
-     - 18
+Insert the e-Paper HAT directly into the Raspberry Pi 40-pin GPIO header, and make sure all pins are aligned correctly before powering on.
 
 .. .. image:: img/rpi_pin.jpg
 
 .. .. image:: img/rpi_zero_pin.png
 
 Enable SPI Interface
--------------------------
+--------------------
 
-Open the Raspberry Pi terminal and enter the following command in the configuration interface:
+Open the Raspberry Pi terminal and run the following command:
 
 .. code-block:: bash
 
     sudo raspi-config
-    # Select Interfacing Options -> SPI -> Yes Enable SPI interface
+    # Select Interfacing Options -> SPI -> Yes to enable the SPI interface
 
 .. image:: img/rpi_SPI1.png
 
@@ -68,7 +34,7 @@ Then restart your Raspberry Pi:
 
     sudo reboot now
 
-Check the /boot/config.txt file or /boot/firmware/config.txt file to ensure the SPI interface is enabled:
+Check ``/boot/config.txt`` or ``/boot/firmware/config.txt`` to confirm that SPI is enabled:
 
 .. image:: img/rpi_SPI4.png
 
@@ -78,11 +44,18 @@ Check the /boot/config.txt file or /boot/firmware/config.txt file to ensure the 
     # Or for newer systems
     sudo cat /boot/firmware/config.txt
 
+Choose a demo language:
+
+* :ref:`raspberrypi_c`
+* :ref:`raspberrypi_python`
+
+.. _raspberrypi_c:
+
 C Language
------------
+----------
 
 Install lg Library
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Open the Raspberry Pi terminal and run the following commands:
 
@@ -96,18 +69,21 @@ Open the Raspberry Pi terminal and run the following commands:
 
 For more details, refer to the source code: https://github.com/gpiozero/lg
 
-Install gpiod Library (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+On Raspberry Pi OS, installing the ``lg`` library is usually enough to run the C demo.
+If the demo fails to compile or run, install the additional libraries below as needed.
+
+Install gpiod Library If Needed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open the Raspberry Pi terminal and run the following commands:
 
 .. code-block:: bash
-    
+
     sudo apt-get update
     sudo apt install gpiod libgpiod-dev
 
-Install BCM2835 (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install BCM2835 If Needed
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open the Raspberry Pi terminal and run the following commands:
 
@@ -120,8 +96,8 @@ Open the Raspberry Pi terminal and run the following commands:
 
 For more information, refer to the official website: http://www.airspayce.com/mikem/bcm2835/
 
-Install WiringPi (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install WiringPi If Needed
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open the Raspberry Pi terminal and run the following command:
 
@@ -129,7 +105,7 @@ Open the Raspberry Pi terminal and run the following command:
 
     sudo apt-get install wiringpi
 
-For Raspberry Pi systems after May 2019 (earlier systems may not need this), you may need to upgrade:
+For Raspberry Pi systems released after May 2019, you may need to upgrade WiringPi. Earlier systems may not require this step.
 
 .. code-block:: bash
 
@@ -137,9 +113,9 @@ For Raspberry Pi systems after May 2019 (earlier systems may not need this), you
     sudo dpkg -i wiringpi-latest.deb
     gpio -v
 
-Running ``gpio -v`` should display version 2.52. If not shown, the installation is incorrect.
+Running ``gpio -v`` should display version 2.52. If it does not, the installation was not successful.
 
-For Bullseye branch systems, use the following commands instead:
+For Bullseye systems, use the following commands instead:
 
 .. code-block:: bash
 
@@ -148,23 +124,26 @@ For Bullseye branch systems, use the following commands instead:
     ./build
     gpio -v
 
-Running ``gpio -v`` should display version 2.60. If not shown, the installation is incorrect.
+Running ``gpio -v`` should display version 2.60. If it does not, the installation was not successful.
 
 Download Demo Code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you have already downloaded it, you can skip this step
+^^^^^^^^^^^^^^^^^^
+
+If you have already downloaded the code, you can skip this step.
 
 .. code-block:: bash
 
     git clone https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT.git
-    cd e-Paper/RaspberryPi/
+    cd LAFVIN-2.13inch-ePaper-HAT/RaspberryPi
 
 Compile the Demo Program
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-    -j4 indicates compilation using 4 threads, the number can be modified as needed;
-    EPD=epd2in13V4 is used to specify a macro definition, epd2in13V4 corresponds to the test demo in the main function.
+    On Raspberry Pi OS Trixie, try compiling after installing only the ``lg`` library first.
+    If you encounter missing dependency errors, return to the optional library steps above and install the required packages.
+    ``-j4`` uses 4 threads for compilation, and you can adjust the number as needed.
+    ``EPD=epd2in13V4`` specifies the macro definition used by the test demo in the main function.
 
 .. code-block:: bash
 
@@ -173,17 +152,19 @@ Compile the Demo Program
     sudo make -j4 EPD=epd2in13V4
 
 Run the Demo Program
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
     sudo ./epd
 
+.. _raspberrypi_python:
+
 Python
----------
+------
 
 Install Libraries for Python 3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -191,12 +172,17 @@ Install Libraries for Python 3
     sudo apt-get install python3-pip
     sudo apt-get install python3-pil
     sudo apt-get install python3-numpy
-    sudo pip3 install spidev(Optional) 
 
-You can proceed without installing first. If you encounter errors during execution, then install it.
+If you encounter a ``spidev``-related error while running the demo, install it with:
+
+.. code-block:: bash
+
+    sudo pip3 install spidev
+
+You can continue without installing it first. If an error occurs during execution, install it at that time.
 
 Install Libraries for Python 2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -204,15 +190,20 @@ Install Libraries for Python 2
     sudo apt-get install python-pip
     sudo apt-get install python-pil
     sudo apt-get install python-numpy
-    sudo pip install spidev (Optional)
 
-You can proceed without installing first. If you encounter errors during execution, then install it.
+If you encounter a ``spidev``-related error while running the demo, install it with:
+
+.. code-block:: bash
+
+    sudo pip install spidev
+
+You can continue without installing it first. If an error occurs during execution, install it at that time.
 
 Install gpiozero Library
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-    This library is installed by default in the system. If not, you can install it using the following commands
+    This library is installed by default on most systems. If it is missing, install it with the following commands:
 
 .. code-block:: bash
 
@@ -223,28 +214,31 @@ Install gpiozero Library
     sudo apt install python-gpiozero
 
 Download Demo Code
-^^^^^^^^^^^^^^^^^^^^^^^
-If you have already downloaded it, you can skip this step
+^^^^^^^^^^^^^^^^^^
+
+If you have already downloaded the code, you can skip this step.
 
 .. code-block:: bash
 
     git clone https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT.git
-    cd e-Paper/RaspberryPi/python
+    cd LAFVIN-2.13inch-ePaper-HAT/RaspberryPi/python/examples
 
 Run the Demo Program
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
-    sudo python3 epd2in13v4_test.py
+    sudo python3 epd_2in13_V4_test.py
 
 .. _unzip_code:
 
 .. note::
-    If you cannot download the code from GitHub, you can use the following commands to download the zip file, then extract it. Other operations remain the same as above:
-    
+    If you cannot download the code from GitHub, you can use the following commands to download the ZIP file and extract it. The remaining steps are the same as above.
+
     .. code-block:: bash
-    
-        wget 
-        unzip .zip
-        cd 
+
+        wget https://github.com/lafvintech/LAFVIN-2.13inch-ePaper-HAT/archive/refs/heads/main.zip
+        unzip main.zip
+        cd LAFVIN-2.13inch-ePaper-HAT-main
+
+    Replace the path ``LAFVIN-2.13inch-ePaper-HAT`` with ``LAFVIN-2.13inch-ePaper-HAT-main`` in the commands that follow.
